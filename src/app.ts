@@ -17,6 +17,8 @@ abstract class Department {
   abstract describe(this: Department): void;
 
   addEmployee(employee: string) {
+    // validation etc
+    // this.id = 'd2';
     this.employees.push(employee);
   }
 
@@ -56,7 +58,7 @@ class AccountingDepartment extends Department {
     this.addReport(value);
   }
 
-  constructor(id: string, private reports: string[]) {
+  private constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
     this.lastReport = reports[0];
   }
