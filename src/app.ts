@@ -111,7 +111,12 @@ it.printEmployeeInformation();
 
 console.log(it);
 
-const accounting = new AccountingDepartment("d2", []);
+// const accounting = new AccountingDepartment("d2", []);
+const accounting = AccountingDepartment.getInstance();
+const accounting2 = AccountingDepartment.getInstance();
+
+console.log(accounting, accounting2);
+
 
 accounting.mostRecentReport = 'Year End Report';
 accounting.addReport("Something went wrong...");
