@@ -35,6 +35,12 @@ class AccountingDepartment extends Department {
   constructor(id: string, private reports: string[]) {
     super(id, 'Accounting');
   }
+  addEmployee(name: string) {
+    if (name === 'Max') {
+      return;
+    }
+    this.employees.push(name);
+  }
 
   addReport(text: string) {
     this.reports.push(text)
