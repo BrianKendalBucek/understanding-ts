@@ -68,7 +68,12 @@ const accounting = new AccountingDepartment('d2', []);
 
 accounting.addReport('Something went wrong...');
 
+accounting.addEmployee('Max');
+accounting.addEmployee('Manu');
+
+
 accounting.printReports();
+accounting.printEmployeeInformation();
 
 // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
 
