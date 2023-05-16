@@ -1,4 +1,4 @@
-class Department {
+abstract class Department {
   static fiscalYear = 2020;
   // private id: string;
   // private name: string;
@@ -14,9 +14,7 @@ class Department {
     return {name: name};
   }
 
-  describe(this: Department) {
-    console.log(`Department: (${this.id}): ${this.name}`);
-  }
+  abstract describe(this: Department): void;
 
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -33,6 +31,10 @@ class ITDepartment extends Department {
   constructor(id: string, admins: string[]) {
     super(id, "IT");
     this.admins = admins;
+  }
+
+  describe() {
+    console.log("IT Department - ID: " + this.id)
   }
 }
 
