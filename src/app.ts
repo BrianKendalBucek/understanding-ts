@@ -25,52 +25,63 @@ class Department {
 class ITDepartment extends Department {
   admins: string[];
   constructor(id: string, admins: string[]) {
-    super(id, 'IT');
+    super(id, "IT");
     this.admins = admins;
-
   }
 }
 
 class AccountingDepartment extends Department {
+  private lastReport: string;
+
+  get mostRecentReport() {
+    if (this.lastReport) {
+
+      return this.lastReport;
+    }
+    throw new Error('No report found.');
+  }
+
   constructor(id: string, private reports: string[]) {
-    super(id, 'Accounting');
+    super(id, "Accounting");
+    this.lastReport = reports[0];
   }
   addEmployee(name: string) {
-    if (name === 'Max') {
+    if (name === "Max") {
       return;
     }
     this.employees.push(name);
   }
 
   addReport(text: string) {
-    this.reports.push(text)
+    this.reports.push(text);
+    this.lastReport = text;
   }
 
   printReports() {
-    console.log(this.reports)
+    console.log(this.reports);
   }
 }
 
-const it = new ITDepartment('d1', ['Max']);
+const it = new ITDepartment("d1", ["Max"]);
 
-it.addEmployee('Max');
-it.addEmployee('Manu');
+it.addEmployee("Max");
+it.addEmployee("Manu");
 
 // it.employees[2] = 'Anna';
 
 it.describe();
-it.name = 'NEW NAME';
+it.name = "NEW NAME";
 it.printEmployeeInformation();
 
 console.log(it);
 
-const accounting = new AccountingDepartment('d2', []);
+const accounting = new AccountingDepartment("d2", []);
 
-accounting.addReport('Something went wrong...');
+accounting.addReport("Something went wrong...");
+console.log(accounting.mostRecentReport);
 
-accounting.addEmployee('Max');
-accounting.addEmployee('Manu');
-
+accounting.addEmployee("Max");
+accounting.addEmployee("Manu");
 
 accounting.printReports();
 accounting.printEmployeeInformation();
