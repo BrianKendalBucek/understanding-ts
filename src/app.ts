@@ -7,6 +7,7 @@ class Department {
   constructor(private readonly id: string, public name: string) {
     // this.id = id;
     // this.name = n;
+    console.log(Department.fiscalYear);
   }
 
   static createEmployee(name: string) {
