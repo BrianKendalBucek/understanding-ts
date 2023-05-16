@@ -4,10 +4,10 @@ class Department {
   // private name: string;
   protected employees: string[] = [];
 
-  constructor(private readonly id: string, public name: string) {
+  constructor(protected readonly id: string, public name: string) {
     // this.id = id;
     // this.name = n;
-    console.log(Department.fiscalYear);
+    // console.log(Department.fiscalYear);
   }
 
   static createEmployee(name: string) {
@@ -58,6 +58,11 @@ class AccountingDepartment extends Department {
     super(id, "Accounting");
     this.lastReport = reports[0];
   }
+
+  describe() {
+    console.log('Accounting Department - ID: ' + this.id);
+  }
+
   addEmployee(name: string) {
     if (name === "Max") {
       return;
@@ -102,8 +107,9 @@ console.log(accounting.mostRecentReport);
 accounting.addEmployee("Max");
 accounting.addEmployee("Manu");
 
-accounting.printReports();
-accounting.printEmployeeInformation();
+// accounting.printReports();
+// accounting.printEmployeeInformation();
+accounting.describe();
 
 // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
 
